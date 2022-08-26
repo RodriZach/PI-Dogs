@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { filterCreated } from "../../../Redux/Actions/Actions";
+import { filterCreated } from "../../Redux/Actions/Actions";
 
 export default function CreatedFilter() {
     const dispatch = useDispatch()

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { sort } from "../../../Redux/Actions/Actions";
+import { sort } from "../../Redux/Actions/Actions";
 
 export default function Sort({setCurrentPage, setOrder}) {
     const dispatch = useDispatch()

@@ -6,6 +6,8 @@ export const GET_TEMPERAMENT = "GET_TEMPERAMENT";
 export const FILTER_BY_TEMP = "FILTER_BY_TEMP";
 export const FILTER_CREATED = "FILTER_CREATED";
 export const SORT = "SORT";
+export const SEARCH_NAME = "SEARCH_NAME";
+export const POST_DOG = "POST_DOG";
 
 
 
@@ -45,6 +47,22 @@ export const getDogDetail = (id) => {
             })
     }
 };
+
+export const searchName = (name) => {
+    return async function (dispatch) {
+        try {
+            let json = await axios.get(`http://localhost:3001/dogs/?name=` + name)
+        return dispatch({
+            type: SEARCH_NAME,
+            payload: json.data
+        })
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
+}
+
 export const getTemperament = () => {
     return async function (dispatch) {
         let json = await axios.get('http://localhost:3001/temperaments')
@@ -73,5 +91,12 @@ export const sort = (value) => {
     return {
         type: SORT,
         payload: value
+    }
+};
+
+export const postDog = (payload) => {
+    return async function(dispatch) {
+        let json = await axios.post('http://localhost:3001/dogs/', payload)
+        return json
     }
 }

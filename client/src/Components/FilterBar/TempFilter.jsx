@@ -1,13 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterDogByTemp, getAllDogs } from "../../../Redux/Actions/Actions";
+import { filterDogByTemp } from "../../Redux/Actions/Actions";
 
 export default function TempFilter({ setCurrentPage }) {
     const dispatch = useDispatch()
 
     function handleFilterTemp(e) {
         e.preventDefault()
-        //dispatch(getAllDogs())
         dispatch(filterDogByTemp(e.target.value))
         setCurrentPage(1)
     }

@@ -4,7 +4,7 @@ import { getAllDogs, getTemperament } from "../../Redux/Actions/Actions";
 import NavBar from "../NavBar/NavBar";
 import Dogs from "../Home/Dogs/Dogs";
 import Page from "./Page/Page";
-import FilterBar from "../NavBar/FilterBar/FilterBar";
+import FilterBar from "../FilterBar/FilterBar";
 
 export default function Home(){
     const dispatch = useDispatch();

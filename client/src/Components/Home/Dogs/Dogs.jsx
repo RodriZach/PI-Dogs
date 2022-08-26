@@ -16,7 +16,7 @@ export default function Dogs({currentDogs}) {
                                 img={a.image}
                                 name={a.name}
                                 weight={a.weight}
-                                temperament={a.temperament}
+                                temperament={!a.createdDb ? a.temperament : a.temperaments.map(d => d.name).join(', ')}
                             />
                         </div>
                     )

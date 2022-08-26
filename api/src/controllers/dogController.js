@@ -34,10 +34,10 @@ async function getDogById(req, res) {
 };
 
 async function postDog(req, res) {
-    const { name, weight, height, life_span, temperaments, image } = req.body;
+    const { name, weight_min, weight_max, height_min, height_max, life_span, temperaments, image } = req.body;
     const random = await randomImg()
     try {
-        if (!name || !weight || !height) res.status(404).send({ msg: "faltan datos" });
+        if (!name || !weight_min || !weight_max || !height_min || !height_max ) res.status(404).send({ msg: "faltan datos" });
         let search = await Dog.findOne({
             where: {
                 name: name
@@ -46,8 +46,8 @@ async function postDog(req, res) {
         if (search) return res.send("ya existe el perro");
         const newDog = await Dog.create({
             name: name,
-            weight: weight + 'Kg',
-            height: height + 'cm',
+            weight: weight_min + ' - ' + weight_max + 'Kg',
+            height: height_min + ' - ' + height_max + ' cm',
             life_span: life_span + ' years',
             image: image || random,
             temperaments: temperaments,

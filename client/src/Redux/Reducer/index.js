@@ -1,4 +1,4 @@
-import { FILTER_BY_TEMP, FILTER_CREATED, GET_ALL_DOGS, GET_DOG_DETAIL, GET_TEMPERAMENT, SORT } from "../Actions/Actions";
+import { FILTER_BY_TEMP, FILTER_CREATED, GET_ALL_DOGS, GET_DOG_DETAIL, GET_TEMPERAMENT, POST_DOG, SEARCH_NAME, SORT } from "../Actions/Actions";
 
 
 const initialState = {
@@ -21,6 +21,11 @@ export default function rootReducer(state= initialState, action){
             return {
                 ...state,
                 dogDetail: action.payload
+            }
+        case SEARCH_NAME:
+            return {
+                ...state,
+                dogs:action.payload
             }
         case GET_TEMPERAMENT:
             return{
@@ -60,6 +65,10 @@ export default function rootReducer(state= initialState, action){
             return{
                 ...state,
                 dogs: sortDogs
+            }
+        case POST_DOG:
+            return{
+                ...state,
             }
     
         default:
