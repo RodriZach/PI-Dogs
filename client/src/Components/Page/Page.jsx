@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Page.module.css";
 
 export default function Page({dogsPerPage, allDogs, paginated}){
     const pages = []
@@ -8,15 +9,16 @@ export default function Page({dogsPerPage, allDogs, paginated}){
     return(
         <div>
             <nav>
-                <ul>
+                <ul className={styles.page}>
                     {pages?.map(n => (
                         
                             <li key={n} >
-                                <button onClick={() => paginated(n)}>{n}</button>
+                                <button className={styles.button} onClick={() => paginated(n)}>{n}</button>
                             </li>
                         )
                     )}
                 </ul>
+                
             </nav>
         </div>
     )

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterCreated } from "../../Redux/Actions/Actions";
+import styles from "../FilterBar/FilterBar.module.css";
 
 export default function CreatedFilter() {
     const dispatch = useDispatch()
@@ -10,7 +11,7 @@ export default function CreatedFilter() {
     }
     return(
         <div>
-            <h3>Created</h3>
+            <h3 className={styles.title}>Created</h3>
             <select onChange={e => handleFilterCreated(e)}>
                 <option value='All'>All</option>
                 <option value='Created'>Created</option>

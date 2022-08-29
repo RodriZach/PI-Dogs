@@ -6,7 +6,9 @@ export const GET_TEMPERAMENT = "GET_TEMPERAMENT";
 export const FILTER_BY_TEMP = "FILTER_BY_TEMP";
 export const FILTER_CREATED = "FILTER_CREATED";
 export const SORT = "SORT";
+export const WEIGHT = "WEIGHT";
 export const SEARCH_NAME = "SEARCH_NAME";
+export const NOT_SEARCH = "NOT_SEARCH";
 export const POST_DOG = "POST_DOG";
 
 
@@ -57,7 +59,9 @@ export const searchName = (name) => {
             payload: json.data
         })
         } catch (error) {
-            console.log(error)
+            return dispatch({
+                type: NOT_SEARCH
+            })
         }
         
     }
@@ -90,6 +94,13 @@ export const filterCreated = (value) => {
 export const sort = (value) => {
     return {
         type: SORT,
+        payload: value
+    }
+};
+
+export const weight = (value) => {
+    return {
+        type: WEIGHT,
         payload: value
     }
 };

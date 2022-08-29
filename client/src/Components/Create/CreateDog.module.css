@@ -1,0 +1,84 @@
+.button {
+    background: linear-gradient(to bottom, #6dcdf3 5%, #43c7aa 100%);
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #FFCDB2;
+    border-radius: 15px
+}
+.button:hover{
+    background-color: #638291af;
+    color: #acd0e0;
+}
+
+.buttonDis {
+    background: linear-gradient(to bottom, #e67ed4 5%, #b35665 100%);
+    display: inline-block;
+    margin-top: 15px;
+    cursor: pointer;
+    color: #333333;
+    font-family: monospace;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 20px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #FFCDB2;
+    border-radius: 15px
+}
+
+.img{
+    background-image: url("../../img/home_back.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.back {
+    background-size: cover;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 40px;
+    padding-bottom: 0px;
+}
+
+.warning {
+    color: red;
+    font-weight: 700;
+}
+
+.fields {
+    display: flexbox;
+    gap: 5px;
+    font-size: large;
+    font-weight: 700;
+}
+
+.btnTemp{
+    background-color: #d84d7b;
+    border: none; 
+    margin-right: 3px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    margin-right: 15px;
+}
+
+.temp1{
+    display: flex;
+    flex-direction: column;
+}
+
+.temps{
+    display: flex;
+    padding: 2px;
+    border-radius: 3px;
+    background-color: #27b19e;
+    color: antiquewhite;
+    width: 200px;
+    margin-left: 50px;
+    margin-top: 2px;
+}

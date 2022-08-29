@@ -2,27 +2,33 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllDogs } from "../../Redux/Actions/Actions";
-import SearchBar from "./SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
+import styles from "../NavBar/NavBar.module.css"
+import Logo from "../../img/Logo.png"
 
-
-export default function NavBar(){
+export default function NavBar({ setLoad }) {
     const dispatch = useDispatch()
 
     const handleDogs = (e) => {
         e.preventDefault()
+        setLoad(true)
+        setTimeout(() => { setLoad(false) }, 3000)
         dispatch(getAllDogs())
     }
 
-    
-    return(
-        <div>
-            <Link to='/home'> 
-                <button onClick={e => handleDogs(e)}>Home</button>
+
+    return (
+        <div className={styles.nav}>
+            <Link to='/' className={styles.linkLogo}>
+                <img className={styles.logo} src={Logo} alt="" />
             </Link>
-            <SearchBar/>
+            <Link to='/home'>
+                <button className={styles.button} onClick={e => handleDogs(e)}>Home</button>
+            </Link>
             <Link to='/form'>
-                <button>Create Dog</button>
+                <button className={styles.button}>Create Dog</button>
             </Link>
+            <SearchBar setLoad={setLoad} />
         </div>
     )
 }

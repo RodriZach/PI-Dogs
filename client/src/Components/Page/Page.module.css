@@ -1,0 +1,22 @@
+.page {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.button {
+    background-color: #43c7aa;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: var(--color);
+}
+
+.button:focus {
+    background-color: var(--color);
+}

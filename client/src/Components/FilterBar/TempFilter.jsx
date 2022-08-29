@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterDogByTemp } from "../../Redux/Actions/Actions";
+import styles from "../FilterBar/FilterBar.module.css";
 
 export default function TempFilter({ setCurrentPage }) {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ export default function TempFilter({ setCurrentPage }) {
     const temp = useSelector(state => state.temperaments)
     return (
         <div>
-            <h3>Temperaments</h3>
+            <h3 className={styles.title}>Temperaments</h3>
             <select onChange={e => handleFilterTemp(e)}>
                 <option key={1 + ' algo'} value='All'>All</option>
                 {temp?.sort(function (a, b) {

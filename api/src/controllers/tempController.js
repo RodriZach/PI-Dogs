@@ -7,7 +7,7 @@ async function getApiTemp(req, res) {
         if (temperament.length === 0) {
             const dogs = await getDogs();
             let temps = await dogs.map(a => a.temperament).join().split(",");
-            temps = temps.map(a => a.trim());
+            temps = temps.filter(c => c !== "").map(a => a.trim());
             
             temps?.map(s=> {
                 Temperament.findOrCreate({

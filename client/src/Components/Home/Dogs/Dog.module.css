@@ -1,0 +1,35 @@
+.dog{
+    width: 250px;
+    height: 438px;
+    box-shadow: 15px 15px 30px rgba(25, 25, 25, 0.11),
+               -15px -15px 30px rgba(60, 60, 60, 0.082);
+    display: flex;
+    flex-direction: column;
+    background-color: #39af96;
+    border: 5px solid #3d869c ;
+    border-radius: 10px;
+    transition: all .3s;
+    margin-bottom: 4px;
+    margin-right: 4px;
+}
+.dog:hover{
+    margin-top: -10px;
+}
+
+.infoName{
+    color: #6b705c;
+    text-decoration: none;
+}
+
+.info{
+    height: 15px;
+    color: #6b705c;
+    text-decoration: none;
+}
+
+.img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 3px;
+}

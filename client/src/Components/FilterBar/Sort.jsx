@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { sort } from "../../Redux/Actions/Actions";
+import styles from "../FilterBar/FilterBar.module.css";
 
 export default function Sort({setCurrentPage, setOrder}) {
     const dispatch = useDispatch()
@@ -14,10 +15,10 @@ export default function Sort({setCurrentPage, setOrder}) {
     }
     return(
         <div>
-            <h3>Sort</h3>
+            <h3 className={styles.title}>Sort</h3>
             <select onChange={e => handleSort(e)}>
-                <option value='Asc'>Ascendente</option>
-                <option value='Desc'>Descendente</option>
+                <option value='Asc'>A-Z</option>
+                <option value='Desc'>Z-A</option>
             </select>
         </div>
     )

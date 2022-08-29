@@ -1,0 +1,22 @@
+.dogs{
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    place-content: center;
+    align-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.not{
+    object-fit: cover;
+    width: 80%;
+    height: 100%;
+    box-shadow: -12px 10px 28px -4px rgba(0, 0, 0, 0.65);
+    -webkit-box-shadow: -12px 10px 28px -4px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: -12px 10px 28px -4px rgba(0, 0, 0, 0.65);
+    border-radius: 3px;
+}
