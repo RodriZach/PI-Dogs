@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTemperament, postDog } from "../../Redux/Actions/Actions";
+import { clearHome, getTemperament, postDog } from "../../Redux/Actions/Actions";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../Create/CreateDog.module.css";
 
@@ -37,6 +37,7 @@ export default function CreateDog() {
 
     const dispatch = useDispatch()
     const history = useHistory()
+    console.log(history)
 
     const temps = useSelector((state) => state.temperaments)
 
@@ -48,12 +49,13 @@ export default function CreateDog() {
         weight_min: '',
         weight_max: '',
         life_span_min: '',
-        lif_span_max: '',
+        life_span_max: '',
         image: '',
         temperaments: []
     })
     useEffect(() => {
         dispatch(getTemperament())
+        dispatch(clearHome())
     }, [dispatch])
 
     function handleChange(e) {
@@ -69,10 +71,12 @@ export default function CreateDog() {
     }
     function handleSelect(e) {
         e.preventDefault()
+        if(!input.temperaments.includes(e.target.value)) {
         setInput({
             ...input,
             temperaments: [...input.temperaments, e.target.value]
         })
+        }
     }
     function handleSubmit(e) {
         e.preventDefault()
@@ -215,9 +219,7 @@ export default function CreateDog() {
                         errors.height_min ||
                         errors.height_max ||
                         errors.weight_min ||
-                        errors.weight_max ||
-                        errors.life_span_min ||
-                        errors.life_span_max
+                        errors.weight_max 
                         ?
                         (<button className={styles.buttonDis} type='submit' disabled={true}>Create</button>)
                         :

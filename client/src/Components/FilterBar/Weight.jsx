@@ -18,6 +18,7 @@ export default function Weigth({ setCurrentPage, setOrder }){
         <div>
             <h3 className={styles.title}>Weight</h3>
             <select onChange={e => handleWeight(e)}>
+                <option hidden selected>Kg</option>
                 <option value='higher'>Higher</option>
                 <option value='lower'>Lower</option>
             </select>

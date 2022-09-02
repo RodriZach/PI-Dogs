@@ -10,13 +10,14 @@ export default function Sort({setCurrentPage, setOrder}) {
         e.preventDefault()
         dispatch(sort(e.target.value))
         setCurrentPage(1)
-        setOrder(`${e.target.value}`)
+        setOrder(e.target.value)
 
     }
     return(
         <div>
-            <h3 className={styles.title}>Sort</h3>
+            <h3 className={styles.title}>Order</h3>
             <select onChange={e => handleSort(e)}>
+                <option hidden selected>Alphabetic</option>
                 <option value='Asc'>A-Z</option>
                 <option value='Desc'>Z-A</option>
             </select>

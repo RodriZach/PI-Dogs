@@ -1,5 +1,11 @@
 .back_image{
     background-image: url("../../img/home_back.jpg");
-    height: 198vh;
-    
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 2%;
+}
+.numberPage{
+    margin-top: 0px;
+    margin-bottom: 5px;
 }

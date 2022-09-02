@@ -1,9 +1,10 @@
 const { Dog, Temperament } = require('../db');
 const axios = require('axios');
 const db = require('../db');
+const {API_KEY} = process.env;
 
 const getApiDogs = async () => {
-    let apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds');
+    let apiInfo = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
     let apiDogs = await apiInfo.data.map(a => {
         return {
             id: a.id,
@@ -17,6 +18,7 @@ const getApiDogs = async () => {
     });
     return apiDogs;
 };
+
 
 const getDbDogs = async () => {
     return await Dog.findAll({

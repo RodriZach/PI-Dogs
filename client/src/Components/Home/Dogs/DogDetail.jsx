@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getDogDetail } from "../../../Redux/Actions/Actions";
+import { clearHome, getDogDetail } from "../../../Redux/Actions/Actions";
 import Loader from "../../Loader/Loader";
 import styles from "../Dogs/DogDetail.module.css";
 
@@ -17,6 +17,7 @@ export default function DogDetail() {
         setLoad(true)
         setTimeout(() => {setLoad(false)}, 3000)
         dispatch(getDogDetail(id))
+        dispatch(clearHome())
     }, [dispatch, id])
 
     return (

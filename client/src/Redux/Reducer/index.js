@@ -1,4 +1,4 @@
-import { FILTER_BY_TEMP, FILTER_CREATED, GET_ALL_DOGS, GET_DOG_DETAIL, GET_TEMPERAMENT, NOT_SEARCH, POST_DOG, SEARCH_NAME, SORT, WEIGHT } from "../Actions/Actions";
+import { CLEAR_DETAIL, CLEAR_HOME, FILTER_BY_TEMP, FILTER_CREATED, GET_ALL_DOGS, GET_DOG_DETAIL, GET_TEMPERAMENT, POST_DOG, SEARCH_NAME, FILTER_SORT, FILTER_WEIGHT } from "../Actions/Actions";
 
 
 const initialState = {
@@ -27,11 +27,6 @@ export default function rootReducer(state = initialState, action) {
                 ...state,
                 dogs: action.payload
             }
-        case NOT_SEARCH:
-            return {
-                ...state,
-                dogs: []
-            }
         case GET_TEMPERAMENT:
             return {
                 ...state,
@@ -40,57 +35,69 @@ export default function rootReducer(state = initialState, action) {
             }
         case FILTER_BY_TEMP:
             const allDoguis = state.allDogs
-            const tempFiltered = action.payload === 'All' ? allDoguis : allDoguis.filter(a => {
+            const tempFiltered = action.payload === 'All' ? state.allDogs : allDoguis.filter(a => {
                 return a.temperament?.includes(action.payload)
             })
             return {
                 ...state,
                 dogs: tempFiltered,
             }
+        case CLEAR_DETAIL:
+            return {
+                ...state,
+                dogDetail: {}
+            }
+        case CLEAR_HOME:
+            return {
+                ...state,
+                dogs: []
+            }
         case FILTER_CREATED:
             const allDogs = state.allDogs
-            const created = action.payload === 'Created' ? allDogs.filter(a => a.createdDb) :
+            const created = action.payload === 'All' ? allDogs : 
+                action.payload === 'Created' ? allDogs.filter(a => a.createdDb) :
                 allDogs.filter(a => !a.createdDb)
             return {
                 ...state,
-                dogs: action.payload === 'All' ? state.allDogs : created
+                dogs: created
             }
-        case SORT:
+        case FILTER_SORT:
             let sortDogs = action.payload === 'Asc' ?
-                state.allDogs.sort(function (a, b) {
-                    if (a.name < b.name) return -1
-                    if (a.name > b.name) return 1
+                state.dogs.sort(function (a, b) {
+                    if (a.name.toLowerCase() < b.name.toLowerCase()) return -1
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
                     return 0
                 }) :
-                state.allDogs.sort(function (a, b) {
-                    if (a.name < b.name) return 1
-                    if (a.name > b.name) return -1
+                state.dogs.sort(function (a, b) {
+                    if (a.name.toLowerCase() < b.name.toLowerCase()) return 1
+                    if (a.name.toLowerCase() > b.name.toLowerCase()) return -1
                     return 0
                 })
             return {
                 ...state,
                 dogs: sortDogs
             }
-        case WEIGHT:
+        case FILTER_WEIGHT:
             let weightDogs = action.payload === 'higher' ?
                 state.dogs.sort(function (a, b) {
-                    if (Number(a.weight.split("-")[0]) > Number(b.weight.split("-")[0])) {
+                    if (parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])) {
                         return -1;
                     }
-                    if (Number(b.weight.split("-")[0]) > Number(a.weight.split("-")[0])) {
+                    if (parseInt(b.weight.split("-")[0]) > parseInt(a.weight.split("-")[0])) {
                         return 1;
                     }
                     return 0;
                 }) :
                 state.dogs.sort(function (a, b) {
-                    if (Number(a.weight.split("-")[0]) > Number(b.weight.split("-")[0])) {
+                    if (parseInt(a.weight.split("-")[0]) > parseInt(b.weight.split("-")[0])) {
                         return 1;
                     }
-                    if (Number(b.weight.split("-")[0]) > Number(a.weight.split("-")[0])) {
+                    if (parseInt(b.weight.split("-")[0]) > parseInt(a.weight.split("-")[0])) {
                         return -1;
                     }
                     return 0;
                 })
+               
             return {
                 ...state,
                 dogs: weightDogs

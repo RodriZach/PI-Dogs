@@ -50,7 +50,7 @@ async function postDog(req, res) {
             height: height_min + ' - ' + height_max + ' cm',
             life_span: life_span_min + '-' + life_span_max + ' years',
             image: image || random,
-            temperaments: temperaments,
+            
 
         });
         const temperamentDb = await Temperament.findAll({
