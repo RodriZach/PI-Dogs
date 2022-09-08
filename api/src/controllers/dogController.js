@@ -20,6 +20,20 @@ async function getAllDogs(req, res) {
     }
 };
 
+
+async function rodrifunction(req, res){
+    const { rodri } = req.params
+    try {
+        if(rodri){
+            const r = "se efectuo"
+            return res.status(200).send(`${rodri}`)
+        }
+    } catch (error) {
+        res.status(404).send({msg: "No funciono"})
+    }
+}
+
+
 async function getDogById(req, res) {
     const { id } = req.params;
     try {
@@ -32,7 +46,6 @@ async function getDogById(req, res) {
         res.status(404).send({ msg: "no existe el id" })
     }
 };
-
 async function postDog(req, res) {
     const { name, weight_min, weight_max, height_min, height_max, life_span_min, life_span_max, temperaments, image } = req.body;
     const random = await randomImg()
@@ -48,7 +61,7 @@ async function postDog(req, res) {
             name: name,
             weight: weight_min + ' - ' + weight_max + 'Kg',
             height: height_min + ' - ' + height_max + ' cm',
-            life_span: life_span_min + '-' + life_span_max + ' years',
+            life_span: life_span_min + ' - ' + life_span_max + ' years',
             image: image || random,
             
 
@@ -69,5 +82,6 @@ async function postDog(req, res) {
 module.exports = {
     getAllDogs,
     getDogById,
-    postDog
+    postDog,
+    rodrifunction
 }

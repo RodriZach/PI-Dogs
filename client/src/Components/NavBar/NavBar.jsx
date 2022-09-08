@@ -29,7 +29,7 @@ export default function NavBar({ setCurrentPage, setLoad }) {
             <Link to='/form'>
                 <button className={styles.button}>Create Dog</button>
             </Link>
-            <SearchBar setLoad={setLoad} />
+            <SearchBar setCurrentPage={setCurrentPage} setLoad={setLoad} />
         </div>
     )
 }

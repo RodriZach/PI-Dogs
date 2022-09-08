@@ -10,7 +10,7 @@
     border-radius: 10px;
     transition: all .3s;
     margin-bottom: 4px;
-    margin-right: 4px;
+    margin-right: 12px;
 }
 .dog:hover{
     margin-top: -10px;

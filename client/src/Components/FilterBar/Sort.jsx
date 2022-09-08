@@ -17,7 +17,7 @@ export default function Sort({setCurrentPage, setOrder}) {
         <div>
             <h3 className={styles.title}>Order</h3>
             <select onChange={e => handleSort(e)}>
-                <option hidden selected>Alphabetic</option>
+                <option hidden>Alphabetic</option>
                 <option value='Asc'>A-Z</option>
                 <option value='Desc'>Z-A</option>
             </select>

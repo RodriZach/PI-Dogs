@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchName } from "../../Redux/Actions/Actions";
 
-export default function SearchBar({setLoad}){
+export default function SearchBar({ setCurrentPage, setLoad }){
     const dispatch = useDispatch()
    
     const initialName = ''
@@ -21,6 +21,7 @@ export default function SearchBar({setLoad}){
             return
         }
         setLoad(true)
+        setCurrentPage(1)
         setTimeout(() => {setLoad(false)}, 3000)
         dispatch(searchName(input))
         setInput(initialName)

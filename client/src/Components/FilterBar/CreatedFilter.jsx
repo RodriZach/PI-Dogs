@@ -13,7 +13,7 @@ export default function CreatedFilter() {
         <div>
             <h3 className={styles.title}>Created</h3>
             <select onChange={e => handleFilterCreated(e)}>
-                <option hidden selected>Created or API</option>
+                <option hidden>Created or API</option>
                 <option value='All'>All</option>
                 <option value='Created'>Created</option>
                 <option value='API'>API</option>
