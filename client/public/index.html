@@ -27,6 +27,24 @@
     <title>Dogrys App</title>
   </head>
   <body>
+    
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+  const mp = new MercadoPago('TEST-0e97f58c-4c5f-443c-a22b-8423ee9e45e0', {
+    locale: 'es-AR'
+  });
+
+  mp.checkout({
+    preference: {
+      id: 1
+    },
+    render: {
+      container: '.cho-container',
+      label: 'Pagar',
+    }
+  });
+</script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

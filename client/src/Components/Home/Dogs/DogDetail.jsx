@@ -15,7 +15,7 @@ export default function DogDetail() {
 
     useEffect(() => {
         setLoad(true)
-        setTimeout(() => {setLoad(false)}, 3000)
+        setTimeout(() => { setLoad(false) }, 3000)
         dispatch(getDogDetail(id))
         dispatch(clearHome())
     }, [dispatch, id])
@@ -25,21 +25,22 @@ export default function DogDetail() {
             <Link to='/home'>
                 <button className={styles.button}>Home</button>
             </Link>
-            {load ? <div className={styles.loader}><Loader/></div>:
-            <div className={styles.detail}>
-                <div className={styles.img}>
-                    <img className={styles.img_detail} src={dogDetail.image} alt={dogDetail.name}></img>
+            {load ? <div className={styles.loader}><Loader /></div> :
+                <div className={styles.detail}>
+                    <div className={styles.img}>
+                        <img className={styles.img_detail} src={dogDetail.image} alt={dogDetail.name}></img>
+                    </div>
+                    <div className={styles.info}>
+                        <h1>{dogDetail.name}</h1>
+                        <h2>Weight: {dogDetail.weight} </h2>
+                        <h2>Height: {dogDetail.height} </h2>
+                        <h2>Life Span: {dogDetail.life_span}</h2>
+                        <h2>Temperaments:</h2>
+                        <h2>{!dogDetail.createdDb ? dogDetail.temperament : dogDetail.temperaments.map(e => " " + e.name).toString().slice(1)}</h2>
+                    </div>
                 </div>
-                <div className={styles.info}>
-                    <h1>{dogDetail.name}</h1>
-                    <h2>Weight: {dogDetail.weight} </h2>
-                    <h2>Height: {dogDetail.height} </h2>
-                    <h2>Life Span: {dogDetail.life_span}</h2>
-                    <h2>Temperaments:</h2>
-                    <h2>{!dogDetail.createdDb ? dogDetail.temperament : dogDetail.temperaments.map(e => " " + e.name).toString().slice(1)}</h2>
-                </div>
-            </div>
-}
+            }
+            <div class="cho-container"></div>
 
         </div>
 

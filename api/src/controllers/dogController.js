@@ -1,6 +1,8 @@
 const { Dog, Temperament } = require('../db');
 const { getDogs, randomImg } = require('./functions');
 
+
+
 async function getAllDogs(req, res) {
     const { name } = req.query;
     let allDogs = await getDogs();
@@ -79,9 +81,13 @@ async function postDog(req, res) {
 
 }
 
+
+
+
 module.exports = {
     getAllDogs,
     getDogById,
     postDog,
     rodrifunction
+    
 }

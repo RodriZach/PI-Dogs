@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home.jsx";
 import DogDetail from './Components/Home/Dogs/DogDetail';
 import Landing from './Components/Landing/Landing';
 import CreateDog from './Components/Create/CreateDog';
+import PayDog from './Components/Pay/PayDog';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
       </Route>
       <Route exact path='/form'>
         <CreateDog />
+      </Route>
+
+      <Route exact path='/pay'>
+        <PayDog />
       </Route>
 
     </div>
